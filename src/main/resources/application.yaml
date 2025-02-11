@@ -3,10 +3,7 @@ micronaut:
     name: micronaut-crud
 datasources:
   default:
-    url: jdbc:mysql://127.0.0.1:3306/test
-    username: root
-    password: ""
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    db-type: mysql
 flyway:
   datasources:
     default:
