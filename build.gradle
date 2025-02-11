@@ -3,11 +3,33 @@ plugins {
     id("io.micronaut.application") version "4.4.2"
     id("io.micronaut.test-resources") version "4.4.2"
     id("io.micronaut.aot") version "4.4.2"
+    id 'maven-publish'
 }
 
 version = "0.1"
 group = "com.piyal"
 
+publishing {
+    publications {
+        mavenJava(MavenPublication){
+            from components.java
+            groupId = "com.aniket"
+            artifactId = "micronaut-crud"
+            version = "1.1"
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/Aniket-ITSUSF/micronaut-crud")
+
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
+                password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+}
 repositories {
     mavenCentral()
 }
