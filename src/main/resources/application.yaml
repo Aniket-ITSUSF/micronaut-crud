@@ -3,11 +3,12 @@ micronaut:
     name: micronaut-crud
 datasources:
   default:
-    url: jdbc:mysql://10.11.12.28:3306/mn_playground
+    url: jdbc:mysql://127.0.0.1:3306/test
     username: root
-    password: password
+    password: ""
     driver-class-name: com.mysql.cj.jdbc.Driver
 flyway:
   datasources:
     default:
       enabled: true
+      baselineOnMigrate: true
